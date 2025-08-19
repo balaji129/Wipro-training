@@ -1,0 +1,27 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <!-- Email -->
+  <label>Email:</label>
+  <input type="email" formControlName="email" />
+  <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" style="color:red;">
+    <small *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</small>
+    <small *ngIf="loginForm.get('email')?.errors?.['email']">Invalid email format.</small>
+    <small *ngIf="loginForm.get('email')?.errors?.['noSpaces']">
+      Email cannot contain spaces.
+    </small>
+  </div>
+  <br />
+
+  <!-- Password -->
+  <label>Password:</label>
+  <input type="password" formControlName="password" />
+  <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" style="color:red;">
+    <small *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</small>
+    <small *ngIf="loginForm.get('password')?.errors?.['minlength']">
+      Password must be at least 6 characters.
+    </small>
+  </div>
+  <br />
+
+  <!-- Submit -->
+  <button type="submit" [disabled]="loginForm.invalid">Login</button>
+</form>

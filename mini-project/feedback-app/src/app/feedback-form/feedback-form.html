@@ -1,0 +1,55 @@
+<div class="feedback-form-container">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <!-- Name -->
+    <div>
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name" />
+      <div class="error" *ngIf="form.get('name')?.touched && form.get('name')?.invalid">
+        <small *ngIf="form.get('name')?.errors?.['required']">Name is required.</small>
+        <small *ngIf="form.get('name')?.errors?.['minlength']">
+          Name must be at least 2 characters.
+        </small>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" />
+      <div class="error" *ngIf="form.get('email')?.touched && form.get('email')?.invalid">
+        <small *ngIf="form.get('email')?.errors?.['required']">Email is required.</small>
+        <small *ngIf="form.get('email')?.errors?.['email']">Enter a valid email address.</small>
+      </div>
+    </div>
+
+    <!-- Rating -->
+    <div>
+      <label for="rating">Rating</label>
+      <select id="rating" formControlName="rating">
+        <option *ngFor="let r of [1,2,3,4,5]" [value]="r">{{ r }}</option>
+      </select>
+    </div>
+
+    <!-- Comment -->
+    <div>
+      <label for="comment">Comment</label>
+      <textarea id="comment" rows="4" formControlName="comment"></textarea>
+      <div class="error" *ngIf="form.get('comment')?.touched && form.get('comment')?.invalid">
+        <small *ngIf="form.get('comment')?.errors?.['required']">Comment is required.</small>
+        <small *ngIf="form.get('comment')?.errors?.['minlength']">
+          Comment must be at least 5 characters.
+        </small>
+        <small *ngIf="form.get('comment')?.errors?.['maxlength']">
+          Comment cannot exceed 500 characters.
+        </small>
+      </div>
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" [disabled]="submitting">Submit Feedback</button>
+
+    <!-- Success message -->
+    <p class="success" *ngIf="msg">{{ msg }}</p>
+  </form>
+</div>

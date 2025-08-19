@@ -1,0 +1,34 @@
+<section class="card">
+  <header class="header">
+    <h2>Feedback List</h2>
+    <div class="controls">
+      <input type="search" placeholder="Search by name, email or comment" [(ngModel)]="term" />
+      <select [(ngModel)]="minRating">
+        <option value="">All ratings</option>
+        <option [value]="5">5★ and up</option>
+        <option [value]="4">4★ and up</option>
+        <option [value]="3">3★ and up</option>
+        <option [value]="2">2★ and up</option>
+        <option [value]="1">1★ and up</option>
+      </select>
+      <button class="danger" (click)="clearAll()">Clear All</button>
+    </div>
+  </header>
+
+  <ul class="list" *ngIf="filtered.length; else empty">
+    <li *ngFor="let f of filtered">
+      <div class="meta">
+        <span class="rating">{{ f.rating | ratingEmoji }}</span>
+        <strong>{{ f.name }}</strong>
+        <span class="email">&lt;{{ f.email }}&gt;</span>
+        <time>{{ f.createdAt | date:'medium' }}</time>
+      </div>
+      <p class="comment">{{ f.comment }}</p>
+      <button class="link" (click)="remove(f.id)">Delete</button>
+    </li>
+  </ul>
+
+  <ng-template #empty>
+    <p class="muted">No feedback yet. Try submitting some from the <a routerLink="/">form</a>.</p>
+  </ng-template>
+</section>

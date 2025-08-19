@@ -1,0 +1,16 @@
+<button (click)="getusers()">Get users</button>
+<label>User name</label><input type="text" name="firstName" placeholder="new user" [(ngModel)]="firstName"/>
+{{ firstName }}<br/>
+<br/>
+<label>Age</label>
+<input type="number" name="age" placeholder="age" [(ngModel)]="age"/><br/>
+<button (click)="addUser()">Add User</button>
+<button (click)="updateUser(user)">Update User</button>
+<br/><br/><br/>
+<ul>
+  <li *ngFor="let user of users">
+    {{ user.firstName }} - {{ user.age }} <button (click)="deleteUser(user.id)">Delete</button> <button (click)="editUser(user)">Edit</button>
+  </li>
+  </ul>
+
+   <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>

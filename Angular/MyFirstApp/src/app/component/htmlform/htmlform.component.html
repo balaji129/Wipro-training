@@ -1,0 +1,54 @@
+<form #feedbackForm="ngForm" (ngSubmit)="onSubmit(feedbackForm)">
+  <!-- Name Field -->
+  <label for="name">Name:</label>
+  <input 
+    type="text" 
+    id="name" 
+    name="name" 
+    ngModel 
+    #name="ngModel" 
+    required
+    minlength="3"
+  >
+  <div *ngIf="name.invalid && name.touched" style="color: red;">
+    <small *ngIf="name.errors?.['required']">Name is required.</small>
+    <small *ngIf="name.errors?.['minlength']">Name must be at least 3 characters long.</small>
+  </div>
+  <br/>
+
+  <!-- Email Field -->
+  <label for="email">Email:</label>
+  <input 
+    type="email" 
+    id="email" 
+    name="email" 
+    ngModel 
+    #email="ngModel" 
+    required 
+    email
+  >
+  <div *ngIf="email.invalid && email.touched" style="color: red;">
+    <small *ngIf="email.errors?.['required']">Email is required.</small>
+    <small *ngIf="email.errors?.['email']">Enter a valid email address.</small>
+  </div>
+  <br/>
+
+  <!-- Message Field -->
+  <label for="message">Message:</label>
+  <textarea 
+    id="message" 
+    name="message" 
+    ngModel 
+    #message="ngModel" 
+    required
+    minlength="10"
+  ></textarea>
+  <div *ngIf="message.invalid && message.touched" style="color: red;">
+    <small *ngIf="message.errors?.['required']">Message is required.</small>
+    <small *ngIf="message.errors?.['minlength']">Message must be at least 10 characters long.</small>
+  </div>
+  <br/>
+
+  <!-- Submit Button -->
+  <button type="submit" [disabled]="feedbackForm.invalid">Submit</button>
+</form>

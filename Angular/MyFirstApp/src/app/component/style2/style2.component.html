@@ -1,0 +1,8 @@
+<h2>ngStyle Example</h2>
+
+<p [ngStyle]="{'color': textColor, 'font-size': fontSize + 'px'}">
+  This text changes color and size dynamically
+</p>
+
+<button (click)="changeColor()">Change Color</button>
+<button (click)="increaseFont()">Increase Font Size</button>

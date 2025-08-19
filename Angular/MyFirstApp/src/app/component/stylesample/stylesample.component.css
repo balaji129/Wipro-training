@@ -1,0 +1,12 @@
+.special-text {
+  color: green;
+  font-weight: bold;
+}
+
+.normal-text {
+  color: gray;
+}
+
+.highlight {
+  background-color: yellow;
+}

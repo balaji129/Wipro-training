@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": "suxfxukqgjg",
+      "firstName": "rushikesh",
+      "age": 22
+    },
+    {
+      "id": "y7t8y7oxae",
+      "firstName": "balaji",
+      "age": 20
+    },
+    {
+      "id": "l1d65iz6wr",
+      "firstName": "Chandan ",
+      "age": 22
+    },
+    {
+      "id": "rm3s8qo12bj",
+      "firstName": "Harish",
+      "age": 22
+    }
+  ]
+}

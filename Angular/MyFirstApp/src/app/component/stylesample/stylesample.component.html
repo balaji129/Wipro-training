@@ -1,0 +1,14 @@
+<h2>ngClass Example</h2>
+
+<!-- Add a class conditionally -->
+<p [ngClass]="isSpecial ? 'special-text' : 'normal-text'">
+  This text changes style based on isSpecial
+</p>
+
+<!-- Add multiple classes conditionally -->
+<p [ngClass]="{'special-text': isSpecial, 'highlight': isHighlighted}">
+  This text can have multiple classes
+</p>
+
+<button (click)="toggleSpecial()">Toggle Special</button>
+<button (click)="toggleHighlight()">Toggle Highlight</button>
