@@ -1,0 +1,25 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <h2>Register</h2>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <label>Username
+        <input formControlName="username" />
+      </label>
+      <label>Password
+        <input type="password" formControlName="password" />
+      </label>
+      <label>Role
+        <select formControlName="role">
+          <option value="User">User</option>
+          <option value="Admin">Admin</option>
+        </select>
+      </label>
+      <button [disabled]="form.invalid">Register</button>
+    </form>
+    <p class="message" *ngIf="message">{{ message }}</p>
+    <p class="error" *ngIf="error">{{ error }}</p>
+    <div class="auth-links">
+      Already have an account? <a routerLink="/login">Login</a>
+    </div>
+  </div>
+</div>

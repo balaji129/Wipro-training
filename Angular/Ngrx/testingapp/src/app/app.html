@@ -1,0 +1,8 @@
+{{counter$ | async}}
+<button (click)="add()">Increment</button>
+<button (click)="minus()">Decrement</button>
+<button (click)="reset()">Reset</button>
+<br /><br />
+
+<input type="number" [(ngModel)]="factor" placeholder="Enter factor" />
+<button (click)="multiply()">Multiply</button>

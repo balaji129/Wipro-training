@@ -1,0 +1,36 @@
+<h1>Admin Dashboard</h1>
+
+<h2>Doctors</h2>
+<button (click)="addDoctor()">Add Doctor</button>
+<table>
+  <tr>
+    <th>ID</th><th>Name</th><th>City</th><th>Specialization</th><th>Actions</th>
+  </tr>
+  <tr *ngFor="let d of doctors">
+    <td>{{d.doctorId}}</td>
+    <td>{{d.name}}</td>
+    <td>{{d.city}}</td>
+    <td>{{d.specializationId}}</td>
+    <td>
+      <button (click)="editDoctor(d.doctorId)">Edit</button>
+      <button (click)="deleteDoctor(d.doctorId)">Delete</button>
+    </td>
+  </tr>
+</table>
+
+<h2>Appointments</h2>
+<table>
+  <tr>
+    <th>ID</th><th>Doctor</th><th>User</th><th>Status</th><th>Actions</th>
+  </tr>
+  <tr *ngFor="let a of appointments">
+    <td>{{a.appointmentId}}</td>
+    <td>{{a.doctorId}}</td>
+    <td>{{a.userId}}</td>
+    <td>{{a.status}}</td>
+    <td>
+      <button (click)="updateAppointmentStatus(a.appointmentId,'Completed')">Complete</button>
+      <button (click)="deleteAppointment(a.appointmentId)">Delete</button>
+    </td>
+  </tr>
+</table>

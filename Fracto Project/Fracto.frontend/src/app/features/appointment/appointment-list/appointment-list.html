@@ -1,0 +1,21 @@
+<div *ngIf="auth.isUser()">
+  <h2>My Appointments</h2>
+
+  <div *ngIf="!appointments.length">
+    <p>No appointments found.</p>
+  </div>
+
+  <div *ngFor="let a of appointments" class="appointment-card">
+    <p><strong>Date:</strong> {{ a.appointmentDate | date:'mediumDate' }}</p>
+    <p><strong>Time Slot:</strong> {{ a.timeSlot }}</p>
+    <p><strong>Status:</strong> {{ a.status }}</p>
+    <button (click)="cancel(a.appointmentId)">Cancel</button>
+  </div>
+
+  <p class="message" *ngIf="message">{{ message }}</p>
+  <p class="error" *ngIf="error">{{ error }}</p>
+</div>
+
+<div *ngIf="!auth.isUser()">
+  <p>You must be logged in as a user to see appointments.</p>
+</div>

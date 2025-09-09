@@ -1,0 +1,27 @@
+<div class="doctor-page">
+  <h2>Find a Doctor</h2>
+
+  <div class="filters">
+    <input type="text" [(ngModel)]="filters.city" placeholder="City" />
+    
+    <select [(ngModel)]="filters.specializationId">
+      <option [ngValue]="undefined">All Specializations</option>
+      <option *ngFor="let s of specializations" [ngValue]="s.id">{{ s.name }}</option>
+    </select>
+
+    <input type="number" [(ngModel)]="filters.minRating" placeholder="Min Rating" min="1" max="5" step="0.1" />
+
+    <button class="btn" (click)="loadDoctors()">Search</button>
+    <button class="btn btn-clear" (click)="clearFilters()">Clear</button>
+  </div>
+
+  <div class="doctor-list">
+    <div class="doctor-card" *ngFor="let doctor of doctors">
+      <h3>{{ doctor.name }}</h3>
+      <p><strong>City:</strong> {{ doctor.city }}</p>
+      <p><strong>Specialization:</strong> {{ doctor.specializationName }}</p>
+      <p><strong>Rating:</strong> {{ doctor.rating }} ⭐</p>
+      <a [routerLink]="['/doctors', doctor.doctorId]" class="btn btn-detail">View Details</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<h2>Edit Doctor</h2>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <label>Name:</label>
+  <input formControlName="name" type="text">
+
+  <label>City:</label>
+  <input formControlName="city" type="text">
+
+  <label>Specialization ID:</label>
+  <input formControlName="specializationId" type="number">
+
+  <label>Rating:</label>
+  <input formControlName="rating" type="number" min="1" max="5">
+
+  <button type="submit">Update Doctor</button>
+</form>

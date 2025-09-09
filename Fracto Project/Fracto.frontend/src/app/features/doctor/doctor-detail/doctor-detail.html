@@ -1,0 +1,33 @@
+<div *ngIf="doctor" class="doctor-detail-card">
+  <h2>{{ doctor.name }}</h2>
+  <p><strong>City:</strong> {{ doctor.city }}</p>
+  <p><strong>Rating:</strong> {{ doctor.rating }} ⭐</p>
+  <p><strong>Specialization:</strong> {{ doctor.specializationName }}</p>
+
+  <!-- Booking for Users -->
+  <div *ngIf="auth.isUser()" class="user-actions">
+    <label>Date:
+      <input type="date" [(ngModel)]="date" required />
+    </label>
+    <label>Time Slot:
+      <input type="text" [(ngModel)]="timeSlot" placeholder="10:00 AM" required />
+    </label>
+    <button (click)="book()" [disabled]="!date || !timeSlot">Book Appointment</button>
+    <p class="message">{{ bookMsg }}</p>
+  </div>
+
+  <!-- Rating for Users -->
+  <div *ngIf="auth.isUser()" class="user-actions">
+    <label>Rate Doctor:
+      <input type="number" [(ngModel)]="ratingValue" min="1" max="5" />
+    </label>
+    <button (click)="rate()" [disabled]="ratingValue < 1 || ratingValue > 5">Submit Rating</button>
+    <p class="message">{{ rateMsg }}</p>
+  </div>
+
+  <!-- Admin Actions -->
+  <div *ngIf="auth.isAdmin()" class="admin-actions">
+    <button class="edit-btn" (click)="editDoctor()">Edit</button>
+    <button class="delete-btn" (click)="deleteDoctor()">Delete</button>
+  </div>
+</div>

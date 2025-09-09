@@ -1,0 +1,86 @@
+/* Full height flex container to center content */
+.auth-container {
+  display: flex;
+  justify-content: center; /* horizontally center */
+  align-items: center;     /* vertically center */
+  min-height: 100vh;       /* full viewport height */
+  background-color: #f0f2f5; /* light gray background */
+  padding: 20px;
+}
+
+/* Card style for auth forms */
+.auth-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 40px 50px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.auth-card h2 {
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.auth-card label {
+  display: block;
+  margin-bottom: 12px;
+  text-align: left;
+  font-weight: 500;
+  color: #555;
+}
+
+.auth-card input,
+.auth-card select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.auth-card button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.auth-card button:hover {
+  background-color: #0056b3;
+}
+
+.auth-card .error {
+  color: crimson;
+  margin-top: 10px;
+}
+
+.auth-card .message {
+  color: green;
+  margin-top: 10px;
+}
+
+.auth-links {
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.auth-links a {
+  color: #007bff;
+  text-decoration: none;
+  margin-left: 4px;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
+}
